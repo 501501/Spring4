@@ -28,3 +28,16 @@
 	3) 글쓰기
 	4) 삭제
 	5) 수정
+	
+	
+### QnA
+1. 테이블 생성
+	num
+	title
+	contents
+	writer
+	regDate
+	hit
+	ref 
+	step
+	depth
