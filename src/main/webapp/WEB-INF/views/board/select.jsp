@@ -20,6 +20,7 @@
 		<h3>Hits : ${dto.hits}</h3>
 		
 		<a href="./delete?num=${dto.num}">DELETE</a>
+		<a href="./update?num=${dto.num}">UPDATE</a>
 	</div>
 </body>
 </html>

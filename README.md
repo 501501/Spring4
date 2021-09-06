@@ -34,6 +34,7 @@
 		/notice/delete GET
 		list
 	5) 수정
+		/notice/update
 	
 4. 순서
 1) DTO, DAO, MAPPER, Test case 테스트 수행

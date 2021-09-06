@@ -4,8 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.sol.s4.notice.NoticeDAO">
- 	<select id="getList" resultType="com.sol.s4.notice.NoticeDTO">
- 		SELECT * FROM NOTICE
+ 	<select id="getList" resultType="com.sol.s4.notice.NoticeDTO" parameterType="com.sol.s4.util.Pager">
+ 		SELECT * FROM
+	 		(SELECT rownum R, NT.* FROM
+		 		(SELECT * 
+		 		FROM NOTICE 
+		 		ORDER BY NUM desc)
+	 		NT)
+ 		WHERE R between #{startRow} and #{lastRow}
  	</select>
  	
  	<select id="getSelect" parameterType="com.sol.s4.notice.NoticeDTO" resultType="com.sol.s4.notice.NoticeDTO">
@@ -20,4 +26,10 @@
 	<delete id="setDelete" parameterType="com.sol.s4.notice.NoticeDTO">
 		DELETE FROM NOTICE WHERE num = #{num}
 	</delete>
+	
+	<!-- num 기준으로 title, contents 수정 -->
+	<update id="setUpdate" parameterType="com.sol.s4.notice.NoticeDTO">
+		UPDATE NOTICE SET TITLE = #{title}, CONTENTS = #{contents}, REGDATE = sysdate
+		WHERE NUM = #{num}
+	</update>
  </mapper>
