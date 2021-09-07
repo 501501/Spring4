@@ -39,6 +39,11 @@
  	<select id="getSelect" parameterType="BoardDTO" resultType="NoticeDTO">
  		SELECT * FROM NOTICE WHERE NUM = #{num}
  	</select>
+ 	
+ 	<update id="setHitUpdate" parameterType="BoardDTO">
+ 		UPDATE NOTICE SET HITS = HITS+1 
+ 		WHERE NUM = #{num}
+ 	</update>
 
 	<insert id="setInsert" parameterType="BoardDTO">
 		INSERT INTO NOTICE (num, title, contents, writer, regDate, hits) 

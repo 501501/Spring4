@@ -12,7 +12,7 @@
 	<c:import url="../temp/boot_nav.jsp"></c:import>
 	<h1>${board} Reply Page</h1>
 	<div class="container-fluid">
-		<form class="col-md-5 mx-auto" action="./insert" method="post">
+		<form class="col-md-5 mx-auto" action="./reply" method="post">
 			<input type="hidden" name="num" value="${param.num}">
 			<div class="mb-3">
 				<label for="title" class="form-label">Title</label> <input
