@@ -17,10 +17,9 @@
 		<div class="input-group mb-3">
 			<select name="kind" class="form-select form-select-sm"
 				aria-label=".form-select-sm example">
-				<option value="num">Num</option>
-				<option value="title">Title</option>
-				<option value="contents">Contents</option>
-				<option value="writer">Writer</option>
+				<option value="k1">Title</option>
+				<option value="k2">Contents</option>
+				<option value="k3">Writer</option>
 			</select> <input type="text" name="search" class="form-control"
 				aria-label="Text input with dropdown button">
 			<button type="submit" class="btn btn-outline-secondary">Search</button>
@@ -28,29 +27,27 @@
 	</form>
 	<!-- Search form finish -->
 
-	<table class="table table-hover">
-	  <thead>
-	    <tr>
-	      <th scope="col" class="table-dark">NUM</th>
-	      <th scope="col" class="table-dark">TITLE</th>
-	      <th scope="col" class="table-dark">WRITER</th>
-	      <th scope="col" class="table-dark">REGDATE</th>
-	      <th scope="col" class="table-dark">HITS</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  	<c:forEach items="${list}" var="dto">
-		    <tr>
-		      <th scope="row">${dto.num}</th>
-		      <td>${dto.title}</td>
-		      <td>${dto.writer}</td>
-		      <td>${dto.regDate}</td>
-		      <td>${dto.hits}</td>
-		    </tr>
-	   </c:forEach>
-	  </tbody>
-	</table>
 
+	<table class="table table-hover">
+		<tr>
+			<th class="table-dark">Num</th>
+			<th class="table-dark">Title</th>
+			<th class="table-dark">Contents</th>
+			<th class="table-dark">Writer</th>
+			<th class="table-dark">RegDate</th>
+			<th class="table-dark">Hits</th>
+		</tr>
+		<c:forEach items="${list}" var="dto">
+			<tr>
+				<td>${dto.num}</td>
+				<td><a href="./select?num=${dto.num}">${dto.title}</a></td>
+				<td>${dto.contents}</td>
+				<td>${dto.writer}</td>
+				<td>${dto.regDate}</td>
+				<td>${dto.hits}</td>
+			</tr>
+		</c:forEach>
+	</table>
 
 	<!-- Paging start -->
 	<div class="mx-auto" style="width: 200px;">
@@ -83,6 +80,9 @@
 		</ul>
 	</nav>
 	</div>
-
+	
+	<div class="mx-auto" style="width: 200px;">
+		<a href="./insert" class="btn btn-danger">WRITE</a>
+	</div>
 </body>
 </html>
