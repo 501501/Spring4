@@ -32,7 +32,6 @@
 		<tr>
 			<th class="table-dark">Num</th>
 			<th class="table-dark">Title</th>
-			<th class="table-dark">Contents</th>
 			<th class="table-dark">Writer</th>
 			<th class="table-dark">RegDate</th>
 			<th class="table-dark">Hits</th>
@@ -49,7 +48,6 @@
 				</c:catch>
 				
 				${dto.title}</a></td>
-				<td>${dto.contents}</td>
 				<td>${dto.writer}</td>
 				<td>${dto.regDate}</td>
 				<td>${dto.hits}</td>
