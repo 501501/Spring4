@@ -32,15 +32,14 @@
 		<tr>
 			<th class="table-dark">Num</th>
 			<th class="table-dark">Title</th>
-			<th class="table-dark">Contents</th>
 			<th class="table-dark">Writer</th>
 			<th class="table-dark">RegDate</th>
 			<th class="table-dark">Hits</th>
 		</tr>
-		<c:forEach items="${list}" var="dto">
+		<c:forEach items="${list}" var="dto" varStatus="i">
 			<tr>
 				<td>${dto.num}</td>
-				<td><a href="./select?num=${dto.num}">
+				<td><span class="c1" data-writer-num="${i.index}">
 				
 				<c:catch>
 					<c:forEach begin="1" end="${dto.depth}">
@@ -48,9 +47,8 @@
 					</c:forEach>
 				</c:catch>
 				
-				${dto.title}</a></td>
-				<td>${dto.contents}</td>
-				<td>${dto.writer}</td>
+				${dto.title}</span></td>
+				<td id="w${i.index}">${dto.writer}</td>
 				<td>${dto.regDate}</td>
 				<td>${dto.hits}</td>
 			</tr>
@@ -91,6 +89,8 @@
 	
 	<div class="mx-auto" style="width: 200px;">
 		<a href="./insert" class="btn btn-danger">WRITE</a>
+		<button id="btn">CLICK</button>
 	</div>
+	<script type="text/javascript" src="../resources/js/list.js"></script>
 </body>
 </html>
