@@ -10,5 +10,13 @@
 <body>
 <c:import url="./temp/boot_nav.jsp"></c:import>
 	<h1>Home Page</h1>
+	
+	<c:if test="${not empty member}">
+		<h3>Login 성공</h3>
+	</c:if>
+	
+	<c:if test="${empty member}">
+		<h3>Login 전</h3>
+	</c:if>
 </body>
 </html>

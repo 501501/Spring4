@@ -8,8 +8,9 @@
 		<typeAlias type="com.sol.s4.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.sol.s4.board.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.sol.s4.board.qna.QnaDTO" alias="QnaDTO"/>
-		
+		<typeAlias type="com.sol.s4.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.sol.s4.util.Pager" alias="Pager"/>
+		
 		<typeAlias type="java.lang.Long" alias="Long"/>
 	</typeAliases>
 </configuration>
