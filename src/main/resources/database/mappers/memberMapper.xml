@@ -11,4 +11,18 @@
 	<select id="getIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT ID FROM MEMBER WHERE ID = #{id}
 	</select>
+	
+	<insert id="setInsert" parameterType="MemberDTO">
+		INSERT INTO MEMBER (ID, PW, NAME, PHONE, EMAIL) 
+		VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email})
+	</insert>
+	
+	<update id="setUpdate" parameterType="MemberDTO">
+		UPDATE MEMBER SET PW = #{pw}, NAME = #{name}
+		WHERE ID = #{id}
+	</update>
+	
+	<delete id="setDelete" parameterType="MemberDTO">
+		DELETE MEMBER WHERE ID = #{id}
+	</delete>
  </mapper>

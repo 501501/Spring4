@@ -87,8 +87,11 @@
 	</nav>
 	</div>
 	
-	<div class="mx-auto" style="width: 200px;">
-		<a href="./insert" class="btn btn-danger">WRITE</a>
-	</div>
+	<c:if test="${not empty member}">
+		<div class="mx-auto write" style="width: 200px;">
+			<a href="./insert" class="btn btn-danger">WRITE</a>
+		</div>
+	</c:if>
+	
 </body>
 </html>

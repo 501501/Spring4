@@ -25,13 +25,15 @@ email:
 			<div class="mb-3">
 				<label for="id" class="form-label">ID</label> 
 				<input type="text" class="form-control join" name="id" id="id" placeholder="Enter ID">
-				<button id="idCheck" type="button">ID 중복확인</button>
+				<div class="mt-3 ml-0">
+					<button id="idCheck" type="button" class="btn btn-success">ID 중복확인</button>
+				</div>
 				<div id="idResult"></div>
 			</div>
 			
 			<div class="mb-3">
-				<label for="pw1" class="form-label">PW</label> 
-				<input type="password" class="form-control join pw" name="pw1" id="pw1" placeholder="Enter password">
+				<label for="pw" class="form-label">PW</label> 
+				<input type="password" class="form-control join pw" name="pw" id="pw" placeholder="Enter password">
 			</div>
 			
 			<div class="mb-3">

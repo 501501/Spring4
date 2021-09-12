@@ -12,12 +12,23 @@ public class MemberDAOTest extends MyJunitTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	@Test
+	//@Test
 	public void getIdCheckTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("sol");;
 		memberDTO = memberDAO.getIdCheck(memberDTO);
 		assertNotNull(memberDTO);
 	}
-
+	
+	@Test
+	public void setInsertTest() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("sol");
+		memberDTO.setPw("sol");
+		memberDTO.setName("정솔");
+		memberDTO.setPhone("01087632942");
+		memberDTO.setEmail("js7645@naver.com");
+		int result = memberDAO.setInsert(memberDTO);
+		assertNotEquals(0, result);
+	}
 }

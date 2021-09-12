@@ -41,7 +41,7 @@ public class MemberController {
 	@PostMapping("login")
 	public ModelAndView login(MemberDTO memberDTO, HttpSession session) throws Exception {
 		//HttpSession session = request.getSession();
-		
+	
 		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getLogin(memberDTO);
 		if (memberDTO != null) {
@@ -81,10 +81,42 @@ public class MemberController {
 		return mv;
 	}
 	
+	@PostMapping("join")
+	public ModelAndView join(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setInsert(memberDTO);
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
 	@GetMapping("join")
 	public ModelAndView join() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/join");
+		return mv;
+	}
+	
+	@GetMapping("modify")
+	public ModelAndView modify() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/modify");
+		return mv;
+	}
+	
+	@PostMapping("modify")
+	public ModelAndView modify(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setUpdate(memberDTO);
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
+	@GetMapping("delete")
+	public ModelAndView delete(MemberDTO memberDTO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberService.setDelete(memberDTO);
+		session.invalidate();
+		mv.setViewName("redirect:../");
 		return mv;
 	}
 }

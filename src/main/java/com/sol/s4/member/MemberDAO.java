@@ -18,4 +18,16 @@ public class MemberDAO {
 	public MemberDTO getIdCheck(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getIdCheck", memberDTO);
 	}
+	
+	public int setInsert(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setInsert", memberDTO);
+	}
+	
+	public int setUpdate(MemberDTO memberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setUpdate", memberDTO);
+	}
+	
+	public int setDelete(MemberDTO memberDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setDelete", memberDTO);
+	}
 }
