@@ -21,14 +21,14 @@ public class MemberDAOTest extends MyJunitTest {
 	}
 	
 	@Test
-	public void setInsertTest() throws Exception {
+	public void setJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("sol");
 		memberDTO.setPw("sol");
 		memberDTO.setName("정솔");
 		memberDTO.setPhone("01087632942");
 		memberDTO.setEmail("js7645@naver.com");
-		int result = memberDAO.setInsert(memberDTO);
+		int result = memberDAO.setJoin(memberDTO);
 		assertNotEquals(0, result);
 	}
 }

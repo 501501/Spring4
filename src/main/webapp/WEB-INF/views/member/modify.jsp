@@ -13,11 +13,6 @@
 	<h1>Modify Page</h1>
 	<div class="container-fluid">
 		<form id="frm" class="col-md-5 mx-auto" action="./modify" method="POST">
-			<!-- id : 변경 불가능 -->
-			<div class="mb-3">
-				<label for="id" class="form-label">ID</label> 
-				<input type="text" class="form-control join" name="id" id="id" value="${member.id}" readonly="readonly">
-			</div>
 			
 			<!-- pw : 변경 가능 -->
 			<div class="mb-3">
@@ -30,22 +25,16 @@
 				<input type="password" class="form-control join pws" name="pw2" id="pw2" placeholder="Enter password again">
 			</div>
 			
-			<!-- name : 변경 가능 -->
-			<div class="mb-3">
-				<label for="name" class="form-label">이름</label> 
-				<input type="text" class="form-control join" name="name" id="name" placeholder="Enter name" value="${member.name}">
-			</div>
-			
-			<!-- phone : 변경 불가능 -->
+			<!-- phone : 변경 가능 -->
 			<div class="mb-3">
 				<label for="phone" class="form-label">전화번호</label> 
-				<input type="tel" class="form-control join" name="phone" id="phone" value="${member.phone}" readonly="readonly">
+				<input type="tel" class="form-control join" name="phone" id="phone" value="${member.phone}">
 			</div>
 			
-			<!-- email : 변경 불가능 -->
+			<!-- email : 변경 가능 -->
 			<div class="mb-3">
 				<label for="email" class="form-label">이메일</label> 
-				<input type="email" class="form-control join" name="email" id="email"  value="${member.email}" readonly="readonly">
+				<input type="email" class="form-control join" name="email" id="email"  value="${member.email}">
 			</div>
 			
 			<div class="mt-3 ml-0" id="change">

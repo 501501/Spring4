@@ -19,8 +19,8 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"getIdCheck", memberDTO);
 	}
 	
-	public int setInsert(MemberDTO memberDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE+"setInsert", memberDTO);
+	public int setJoin(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setJoin", memberDTO);
 	}
 	
 	public int setUpdate(MemberDTO memberDTO) throws Exception {

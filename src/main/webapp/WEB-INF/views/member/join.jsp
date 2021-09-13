@@ -38,7 +38,7 @@ email:
 			
 			<div class="mb-3">
 				<label for="pw2" class="form-label">PW 확인</label> 
-				<input type="password" class="form-control join pw" name="pw2" id="pw2" placeholder="Enter password again">
+				<input type="password" class="form-control join pw" name="pwCheck" id="pw2" placeholder="Enter password again">
 			</div>
 			
 			<div class="mb-3">
