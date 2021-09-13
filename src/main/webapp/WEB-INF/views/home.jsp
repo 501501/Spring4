@@ -18,5 +18,16 @@
 	<c:if test="${empty member}">
 		<h3>Login 전</h3>
 	</c:if>
+	
+	<button id="btn">CLICK</button>
+	
+	<script type="text/javascript">
+		/* const btn = document.getElementById("btn");
+		btn.addEventListener() ... */
+	
+		$("#btn").click(function () {
+			alert("click");
+		});
+	</script>
 </body>
 </html>

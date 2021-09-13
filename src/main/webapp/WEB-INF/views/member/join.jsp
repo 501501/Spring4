@@ -56,11 +56,22 @@ email:
 				<input type="email" class="form-control join" name="email" id="email" placeholder="email@email.com">
 			</div>
 			
-			<div class="mt-3 ml-0">
+			<div class="mt-3 ml-0" id="files">
+			<label for="email" class="form-label"></label> 
+				<button id="add" type="button" class="btn btn-success"> FILE ADD</button>
+			</div>
+			
+			<!-- input file 추가 영역 -->
+			<div id = "addResult">
+				
+			</div>
+			
+			<div class="mt-3 ml-0">	
 				<button id="btn" type="button" class="btn btn-success">JOIN</button>
 			</div>
 		</form>
 	</div>
 	<script type="text/javascript" src="../resources/js/join.js"></script>
+	<script type="text/javascript" src="../resources/js/file.js"></script>
 </body>
 </html>
