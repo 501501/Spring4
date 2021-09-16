@@ -14,5 +14,6 @@
 		<typeAlias type="com.sol.s4.util.Pager" alias="Pager"/>
 		
 		<typeAlias type="java.lang.Long" alias="Long"/>
+		<typeAlias type="java.util.List" alias="List"/>
 	</typeAliases>
 </configuration>

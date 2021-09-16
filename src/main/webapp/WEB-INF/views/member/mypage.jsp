@@ -11,7 +11,7 @@
 	<h3>ID : ${member.id}</h3>
 	<h3>Email : ${member.email}</h3>
 	<div>
-		<img alt="" src="../resources/upload/member/${files.fileName}">
+		<img alt="" src="../resources/upload/member/${member.memberFilesDTO.fileName}">
 	</div>
 	
 	<a href="./modify">수정</a>

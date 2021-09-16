@@ -4,6 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.sol.s4.member.MemberDAO">
+ 	<resultMap type="MemberDTO" id="getLoginResult">
+ 		<id column="id" property="id"/>
+ 		<result column="pw" property="pw"/>
+ 		<result column="name" property="name"/>
+ 		<result column="email" property="email"/>
+ 		<result column="phone" property="phone"/>
+ 		
+ 		<!-- 1:1 관계, DTO 내에 다른 DTO 하나가 멤버변수로 선언 -->
+ 		<association property="memberFilesDTO" javaType="MemberFilesDTO">
+ 			<id column="num" property="num"/>
+ 			<result column="fileName" property="fileName"/>
+ 			<result column="oriName" property="oriName"/>
+ 		</association>
+ 	</resultMap>
+ 	
+	<select id="getLogin" parameterType="MemberDTO" resultMap="getLoginResult">
+		SELECT *
+		FROM MEMBER M
+		    INNER JOIN 
+		    MEMBERFILES MF
+		USING (ID)
+		WHERE ID = #{id} AND PW = #{pw}
+	</select>
+
  	<select id="getFile" parameterType="MemberDTO" resultType="MemberFilesDTO">
  		SELECT * FROM MEMBERFILES WHERE ID = #{id}
  	</select>
@@ -12,11 +36,7 @@
  		INSERT INTO MEMBERFILES (num, id, fileName, oriName)
  		VALUES (files_seq.nextval, #{id}, #{fileName}, #{oriName})
  	</insert>
- 
-	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
-		SELECT * FROM MEMBER WHERE ID = #{id} AND PW = #{pw}
-	</select>
-	
+
 	<select id="getIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT ID FROM MEMBER WHERE ID = #{id}
 	</select>
