@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sol.s4.board.notice.NoticeDAO">
+	<insert id="setFile" parameterType="BoardFilesDTO">
+		INSERT INTO NOTICEFILES (fileNum, num, fileName, oriName)
+		VALUES (files_seq.nextval, #{num}, #{fileName}, #{oriName})
+	</insert>
+	
 	<select id="getCount" resultType="Long" parameterType="Pager">
 		SELECT COUNT(NUM) FROM NOTICE
 		
@@ -44,10 +49,17 @@
  		UPDATE NOTICE SET HITS = HITS+1 
  		WHERE NUM = #{num}
  	</update>
+ 	
+ 	<select id="getFiles" parameterType="BoardDTO" resultType="BoardFilesDTO">
+ 		SELECT fileName FROM NOTICEFILES WHERE NUM = #{num}
+ 	</select>
 
 	<insert id="setInsert" parameterType="BoardDTO">
+		<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+			SELECT notice_seq.nextval FROM dual
+		</selectKey>
 		INSERT INTO NOTICE (num, title, contents, writer, regDate, hits) 
-		VALUES (notice_seq.nextval, #{title}, #{contents}, #{writer}, sysdate, 0)
+		VALUES (#{num}, #{title}, #{contents}, #{writer}, sysdate, 0)
 	</insert>
 	
 	<delete id="setDelete" parameterType="BoardDTO">

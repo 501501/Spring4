@@ -12,7 +12,7 @@
 	<c:import url="../temp/boot_nav.jsp"></c:import>
 	<h1>Insert Page</h1>
 	<div class="container-fluid">
-		<form class="col-md-5 mx-auto" action="./insert" method="post">
+		<form class="col-md-5 mx-auto" action="./insert" method="post" enctype="multipart/form-data">
 			<div class="mb-3">
 				<label for="title" class="form-label">Title</label> <input
 					type="text" class="form-control" name="title" id="title"
@@ -30,10 +30,17 @@
 				<textarea rows="10" cols="85" name="contents" id="contents"></textarea>
 			</div>
 			
+			<!-- button 추가 -->
+			<div class="mt-3 ml-0" id="files">
+			<label for="file" class="form-label"></label> 
+				<button id="add" type="button" class="btn btn-success">File Add</button>
+			</div>
+			
 			<div class="mt-3 ml-0">
 				<button type="submit" class="btn btn-success">ADD</button>
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript" src="../resources/js/boardFile.js"></script>
 </body>
 </html>

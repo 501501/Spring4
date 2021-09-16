@@ -10,6 +10,9 @@
 	<h1>My Page</h1>
 	<h3>ID : ${member.id}</h3>
 	<h3>Email : ${member.email}</h3>
+	<div>
+		<img alt="" src="../resources/upload/member/${files.fileName}">
+	</div>
 	
 	<a href="./modify">수정</a>
 	<a href="#" id="del">탈퇴</a>

@@ -21,6 +21,13 @@
 		    <version>3.5.7</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
 		<!-- mybatis-spring 추가 -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
