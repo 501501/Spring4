@@ -15,13 +15,16 @@
 	<div class="container-fluid">
 		<h3>Num : ${dto.num}</h3>
 		<h3>Contents : ${dto.contents}</h3>
+		<div>
+			${dto.contents}
+		</div>
 		<h3>Writer : ${dto.writer}</h3>
 		<h3>RegDate : ${dto.regDate}</h3>
 		<h3>Hits : ${dto.hits}</h3>
 		
-		<c:forEach items="${fileList}" var="f">
+		<c:forEach items="${dto.files}" var="f">
 			<div>
-				<img alt="" src="../resources/upload/notice/${f.fileName}">
+				<a href="./down?fileName=${f.fileName}">${f.oriName}</a>
 			</div>
 		</c:forEach>
 		
