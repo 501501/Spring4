@@ -15,7 +15,6 @@ name: 비어있으면 X
 phone: 비어있으면 X, 전화번호 형식
 email: 
 -->
-
 </head>
 <body>
 	<c:import url="../temp/boot_nav.jsp"></c:import>

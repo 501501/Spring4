@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sol.s4.board.BoardDTO;
+import com.sol.s4.board.BoardFilesDTO;
 import com.sol.s4.util.Pager;
 
 @Controller
@@ -33,6 +35,32 @@ public class QnaController {
 		return mv;
 	}
 	
+	@GetMapping("down")
+	public ModelAndView fileDown(BoardFilesDTO boardFilesDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("dto", boardFilesDTO);
+		mv.setViewName("fileDown");
+		return mv;
+	}
+	
+	@GetMapping("delete")
+	public ModelAndView setDelete(BoardDTO boardDTO) throws Exception {
+		int result = qnaService.setDelete(boardDTO);
+		ModelAndView mv = new ModelAndView();
+		String message = "Delete Fail"; 
+		
+		if (result > 0) {
+			message = "Delete Success";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("url", "./list");
+		
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
 	@GetMapping("reply")
 	public ModelAndView setReply() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -44,6 +72,7 @@ public class QnaController {
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		boardDTO = qnaService.getSelect(boardDTO);
+		List<BoardFilesDTO> ar = qnaService.getFiles(boardDTO);
 		mv.addObject("dto", boardDTO);
 		mv.setViewName("board/select");
 		return mv;
@@ -57,9 +86,15 @@ public class QnaController {
 	}
 	
 	@PostMapping("insert")
-	public ModelAndView setInsert(BoardDTO boardDTO) throws Exception {
+	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
+		// original file name 출력
+		for(MultipartFile muFile:files) {
+			System.out.println(muFile.getOriginalFilename());
+		}
+		
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.setInsert(boardDTO);
+		int result = qnaService.setInsert(boardDTO, files);
+		
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

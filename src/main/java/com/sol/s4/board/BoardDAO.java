@@ -5,6 +5,8 @@ import java.util.List;
 import com.sol.s4.util.Pager;
 
 public interface BoardDAO {
+	// file
+	public int setFile(BoardFilesDTO boardFilesDTO) throws Exception;
 	
 	// 전체 개수
 	public Long getCount(Pager pager) throws Exception;

@@ -10,6 +10,20 @@ const id = document.getElementById('id');
 const idResult = document.getElementById('idResult');
 const idCheck = document.getElementById('idCheck');
 
+$('#id').blur(function() {
+	let id = $('#id').val();
+	$.get('./idCheckAjax?id='+id, function(data){
+		data = data.trim();
+		if (data == '1') {
+			$('#idResult').html('사용 가능');
+		} else {
+			$('#idResult').html('사용 불가능');
+		}
+	});
+	console.log(id);
+	
+});
+
 idCheck.addEventListener('click', function(){
 	open("./idCheck?id="+id.value, "", "width=400, height=200, top=200, left=300");
 });
